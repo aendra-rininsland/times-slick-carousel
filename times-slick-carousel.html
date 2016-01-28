@@ -25,7 +25,7 @@ Example:
 
 Example:
 
-    <times-slick-carousel>
+    <times-slick-carousel slick-options="{}">
       <div>Hi Mom!</div>
       <img src="./llama.jpg" />
     </times-slick-carousel>
@@ -44,7 +44,7 @@ Example:
 
     </style>
 
-    <div id="carousel" data-slick="">
+    <div id="carousel" data-slick="{{slickOptions}}">
       <content></content>
     </div>
   </template>
@@ -55,35 +55,67 @@ Example:
 
       properties: {
         /**
-         * `fancy` indicates that the element should don a monocle and tophat,
-         * while checking its pocket watch.
+         * Options to pass to Slick Carousel.
+         * @see http://kenwheeler.github.io/slick/
+         * @type {Object}
          */
-        fancy: Boolean,
-
-        /**
-         * Describes the author of the element, but is really just an excuse to
-         * show off JSDoc annotations.
-         *
-         * @type {{name: string, image: string}}
-         */
-        author: {
+        slickOptions: {
           type: Object,
-          // Use `value` to provide a default value for a property, by setting it
-          // on your element's prototype.
-          //
-          // If you provide a function, as we do here, Polymer will call that
-          // _per element instance_.
-          //
-          // We do that to ensure that each element gets its own copy of the
-          // value, rather than having it shared across all instances (via the
-          // prototype).
           value: function() {
             return {
-              name:  'Dimitri Glazkov',
-              image: 'http://addyosmani.com/blog/wp-content/uploads/2013/04/unicorn.jpg',
-            };
+              accessibility: true,
+              adaptiveHeight: false,
+              appendArrows: $(this),
+              appendDots: $(this),
+              arrows: true,
+              asNavFor: null,
+              prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">Previous</button>',
+              nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">Next</button>',
+              autoplay: false,
+              autoplaySpeed: 3000,
+              centerMode: false,
+              centerPadding: '50px',
+              cssEase: 'ease',
+              customPaging: function(slider, i) {
+                  return $('<button type="button" data-role="none" role="button" aria-required="false" tabindex="0" />').text(i + 1);
+              },
+              dots: false,
+              dotsClass: 'slick-dots',
+              draggable: true,
+              easing: 'linear',
+              edgeFriction: 0.35,
+              fade: false,
+              focusOnSelect: false,
+              infinite: true,
+              initialSlide: 0,
+              lazyLoad: 'ondemand',
+              mobileFirst: false,
+              pauseOnHover: true,
+              pauseOnFocus: true,
+              pauseOnDotsHover: false,
+              respondTo: 'window',
+              responsive: null,
+              rows: 1,
+              rtl: false,
+              slide: '',
+              slidesPerRow: 1,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              speed: 500,
+              swipe: true,
+              swipeToSlide: false,
+              touchMove: true,
+              touchThreshold: 5,
+              useCSS: true,
+              useTransform: true,
+              variableWidth: false,
+              vertical: false,
+              verticalSwiping: false,
+              waitForAnimate: true,
+              zIndex: 1000
+            }
           }
-        },
+        }
       },
 
       // Element Lifecycle
@@ -115,36 +147,6 @@ Example:
         // removed from a document.
         //
         // Use this to clean up anything you did in `attached`.
-      },
-
-      // Element Behavior
-
-      /**
-       * Sometimes it's just nice to say hi.
-       *
-       * @param {string} greeting A positive greeting.
-       * @return {string} The full greeting.
-       */
-      sayHello: function(greeting) {
-        var response = greeting || 'Hello World!';
-        return 'times-slick-carousel says, ' + response;
-      },
-
-      /**
-       * The `times-slick-carousel-lasers` event is fired whenever `fireLasers` is called.
-       *
-       * @event times-slick-carousel-lasers
-       * @detail {{sound: String}}
-       */
-
-      /**
-       * Attempt to destroy this element's enemies with a beam of light!
-       *
-       * Or, at least, dispatch an event in the vain hope that someone else will
-       * do the zapping.
-       */
-      fireLasers: function() {
-        this.fire('times-slick-carousel-lasers', {sound: 'Pew pew!'});
       }
     });
   </script>
