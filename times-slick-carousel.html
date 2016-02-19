@@ -58,7 +58,12 @@ Example:
          * @see http://kenwheeler.github.io/slick/
          * @type {Object}
          */
-        slickOptions: String
+        slickOptions: {
+          type: Object,
+          value: function() {
+            return {};
+          }
+        }
       },
 
       // Element Lifecycle
@@ -77,12 +82,12 @@ Example:
           asNavFor: null,
           prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">Previous</button>',
           nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">Next</button>',
-          autoplay: false,
+          autoplay: true, // false
           autoplaySpeed: 3000,
           centerMode: false,
           centerPadding: '50px',
           cssEase: 'ease',
-          dots: false,
+          dots: true, // false
           dotsClass: 'slick-dots',
           draggable: true,
           easing: 'linear',
@@ -118,7 +123,8 @@ Example:
           zIndex: 1000
         };
 
-        this.options = Object.assign(slickDefaults, this.slickOptions);
+        this.options = Object.assign(slickDefaults, this.slickOptions); // @TODO figure out why this doesn't work.
+
         this.async(function(){
           var el = this.$.carousel;
           jQuery(el).slick(this.options);
@@ -132,7 +138,6 @@ Example:
         // This is a good place to perform any work related to your element's
         // visual state or active behavior (measuring sizes, beginning animations,
         // loading resources, etc).
-
       },
 
       detached: function() {
