@@ -2,6 +2,12 @@
 
 An element providing a starting point for your own reusable Polymer elements.
 
+## :boom: Breaking change in 1.0.2! :boom:
+
+We no longer include jQuery with the component. This is because doing so has a tendency
+to override any other version of jQuery, losing plugins and the like.
+
+Please manually include jQuery as a dependency in your app.
 
 ## Dependencies
 

@@ -1,18 +1,22 @@
 {
   "name": "times-slick-carousel",
-  "version": "1.0.7",
+  "version": "1.0.2",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Ændrew Rininsland <aendrew@aendrew.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "An element to ",
   "keywords": [
     "web-component",
+    "carousel",
+    "slider",
+    "slick",
+    "slick carousel",
     "polymer",
     "seed"
   ],
   "main": "times-slick-carousel.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "homepage": "https://github.com/times/times-slick-carousel",
   "ignore": [
     "/.*",
     "/test/"
