@@ -128,8 +128,8 @@ Example:
         // necessary), or kick off any processes the element wants to perform.
         this.async(function(){
           var el = this.$.carousel;
-          jQuery(el).slick({'slide': '.slide'});
-        }, 2000);
+          jQuery(el).slick(this.slickOptions);
+        }.bind(this), 2000);
       },
 
       attached: function() {
@@ -151,7 +151,7 @@ Example:
 
       initSlick: function() {
         var el = this.$.carousel;
-        jQuery(el).slick({'slide': '.slide'});
+        jQuery(el).slick(this.slickOptions);
       }
     });
   </script>
