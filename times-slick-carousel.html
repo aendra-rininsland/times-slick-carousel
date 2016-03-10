@@ -69,6 +69,8 @@ Example:
       // Element Lifecycle
 
       ready: function() {
+        this.scopeSubtree(this.$.carousel, true); // This is needed to propagate Slick's styles down.
+
         // `ready` is called after all elements have been configured, but
         // propagates bottom-up. This element's children are ready, but parents
         // are not.
